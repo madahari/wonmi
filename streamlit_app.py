@@ -1,9 +1,10 @@
 import streamlit as st
 import requests
+import openai
 
 # OpenAI API 키 설정
 API_KEY = st.secrets["openai"]["api_key"]
-
+openai.api_key = API_KEY
 # 뉴스 수집 함수
 def fetch_news(keyword):
     url = f"https://newsapi.org/v2/everything?q={keyword}&apiKey={API_KEY}"

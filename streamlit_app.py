@@ -4,7 +4,7 @@ import requests
 # OpenAI API 키 설정
 openai_api_key = st.secrets["openai"]["api_key"]
 
-뉴스 수집 함수
+# 뉴스 수집 함수
 def fetch_news(keyword):
     url = f"https://newsapi.org/v2/everything?q={keyword}&apiKey={API_KEY}"
 
@@ -14,13 +14,13 @@ def fetch_news(keyword):
     else:
         return []
 
-Streamlit 앱 시작
+# Streamlit 앱 시작
 st.title("맞춤형 키워드 뉴스 수집")
 
-사용자 입력 받기
+# 사용자 입력 받기
 keyword = st.text_input("뉴스 키워드를 입력하세요", "주식 AND 상장")
 
-'뉴스 검색' 버튼이 클릭될 때 뉴스 수집
+# '뉴스 검색' 버튼이 클릭될 때 뉴스 수집
 if st.button("뉴스 검색"):
     with st.spinner("뉴스 수집 중..."):
         # 키워드에 맞는 뉴스 수집

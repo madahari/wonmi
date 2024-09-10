@@ -3,11 +3,23 @@ import requests
 import openai
 
 # OpenAI API 키 설정
-API_KEY = st.secrets["openai"]["api_key"]
+if 'OPENAI_API_KEY' not in st.secrets:
+    st.error("OpenAI API 키가 설정되지 않았습니다. secrets.toml 파일을 확인해주세요.")
+    st.stop()
+
+API_KEY = st.secrets["OPENAI_API_KEY"]
 openai.api_key = API_KEY
+
+# News API 키 설정
+if 'NEWS_API_KEY' not in st.secrets:
+    st.error("News API 키가 설정되지 않았습니다. secrets.toml 파일을 확인해주세요.")
+    st.stop()
+
+NEWS_API_KEY = st.secrets["NEWS_API_KEY"]
+
 # 뉴스 수집 함수
 def fetch_news(keyword):
-    url = f"https://newsapi.org/v2/everything?q={keyword}&apiKey={API_KEY}"
+    url = f"https://newsapi.org/v2/everything?q={keyword}&apiKey={NEWS_API_KEY}"
 
     response = requests.get(url)
     if response.status_code == 200:

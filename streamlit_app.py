@@ -4,7 +4,7 @@ from openai import OpenAI
 
 # OpenAI 클라이언트 초기화
 API_KEY = st.secrets["openai"]["api_key"] #openai_api_key
-client = OpenAI(api_key  = openai_api_key)
+client = OpenAI(api_key  = API_KEY)
 # NewsAPI의 API 키 입력
 # API_KEY = 'your_news_api_key'  # 발급받은 API 키로 교체
 

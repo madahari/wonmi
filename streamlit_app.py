@@ -4,7 +4,7 @@ import requests
 # NewsAPI의 API 키 입력
 # API_KEY = 'your_news_api_key'  # 발급받은 API 키로 교체
 # OpenAI API 키 설정
-openai_api_key = st.secrets["openai"]["api_key"]
+ API_KEY= st.secrets["openai"]["api_key"] #openai_api_key
 # 뉴스 수집 함수
 def fetch_news(keyword):
     url = f"https://newsapi.org/v2/everything?q={keyword}&apiKey={API_KEY}"
